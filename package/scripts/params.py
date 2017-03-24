@@ -1,7 +1,7 @@
 #!/usr/bin/config python
 from resource_management import *
 from resource_management.libraries.functions.default import default
-from resource_management.libraries.functions.version import compare_versions, format_hdp_stack_version
+from resource_management.libraries.functions.version import compare_versions, format_stack_version
 from resource_management.libraries.functions.format import format
 
 import commands
@@ -25,7 +25,7 @@ worker_mem = config['configurations']['alluxio-env']['alluxio.worker.memory']
 
 # Find current stack and version to push agent files to
 stack_name = default("/hostLevelParams/stack_name", None)
-stack_version = format_hdp_stack_version(default("/commandParams/version", None))
+stack_version = format_stack_version(default("/commandParams/version", None))
 
 # hadoop params
 namenode_address = None
